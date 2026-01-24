@@ -48,18 +48,21 @@ This will preprocess the data, train the ensemble, and generate submission.csv.
 
 ### 📊 Scatter Plot: Engineered Features 
 Shows relationship between new features and target variable.
-<img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/scatter.png" width="500"/>
+
+<img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/scatter.png" width="900"/>
 
 ### 🎯 Target Transformation 
 Before and after log transformation of SalePrice.
-**Before**
-<img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/target1.png" width="500"/>
-**After**
-<img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/target2.png" width="500"/>
+
+| Before | After |
+|--------|-------|
+| <img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/target1.png" width="450"/> | <img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/target2.png" width="450"/> |
+
 
 ### 🔥 Feature Correlation Heatmap  
-After dropping highly correlated features.
-<img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/heatmap.png" width="500"/>
+After dropping highly correlated features (+0.80).
+
+<img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/heatmap.png" width="900"/>
 
 ---
 
@@ -102,11 +105,45 @@ After dropping highly correlated features.
 
 ## 🧠 How It Works
 1. Load datasets using Pandas.
-2. Separates X (size, bedrooms) and y (price).
-3. Normalizes features manually or using standardization.
-4. Adds a column of ones for the bias term.
-5. Implements the hypothesis function.
-6. Implements Cost Function.
-7. Implements Gradient Descent (vectorized).
-8. Updates parameters until convergence.
-9. Plots the cost function to visualize learning progress.
+2. Clean missing values and outliers.
+3. Apply feature engineering and encoding:
+    - Ordinal encoding
+    - Target encoding
+    - Log transformation of target
+    - New engineered features
+4. Split train/validation sets.
+5. Build preprocessing pipeline (numerical scaling, categorical encoding).
+6. Train ensemble of Ridge, CatBoost, XGBoost, LightGBM, Gradient Boosting.
+7. Tune hyperparameters using Optuna for stability and performance.
+8. Generate Kaggle-ready predictions.
+
+### 🧪 Experimental Notes
+- Tested Random Forest: underperformed compared to ensemble.  
+- Tried manual ensemble: similar performance to Voting, but Voting automated the process.  
+- Explored stacking in multiple versions: Voting consistently gave better results, so it was chosen.  
+- Added Linear Regression in the final version: overfitting occurred, reducing ensemble performance due to sensitivity to extreme values.
+
+---
+
+## 🤝 Contributing
+Contributions are welcome!
+1. Fork the repository
+2. Create a new feature branch
+3. Submit a pull request
+Please ensure your code is clean, structured, and well-commented.
+
+
+---
+
+
+## 📝 License
+This project is licensed under the MIT license - see the LICENSE file for details. 
+
+
+---
+
+
+## 📞 Support
+If you have questions or need help, feel free to:
+- Open an issue on this repository  
+- Connect with me on LinkedIn: https://www.linkedin.com/in/radwanhefny  
