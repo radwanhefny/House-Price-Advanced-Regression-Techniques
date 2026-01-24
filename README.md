@@ -46,8 +46,8 @@ This will preprocess the data, train the ensemble, and generate submission.csv.
 
 ## 🎬 Screenshots / Demo
 
-### 📊 Scatter Plot: Engineered Features 
-Shows relationship between new features and target variable.
+### 📊 Scatter Plot: outlier detection 
+Shows relationship between features with outliers and target variable.
 
 <img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/scatter.png" width="900"/>
 
@@ -90,7 +90,7 @@ After dropping highly correlated features (+0.80).
 ## 🛠️ Usage
 - Run the pipeline script to generate preprocessed data, train models with tuned hyperparameters, and produce Kaggle-ready predictions.
 - Outputs:
-  - submission_v4.csv → Kaggle submission.
+  - submission.csv → Kaggle submission.
   - Internal validation RMSE printed in console.
 - Expected Kaggle Public Score: 0.12260 | Top 12%.
 
