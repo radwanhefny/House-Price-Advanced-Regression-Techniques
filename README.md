@@ -26,46 +26,6 @@ Kaggle Public Score: **0.12260 | Top 12% (Rank 586 / 4764)**
 
 ---
 
-## 🚀 Getting Started
-1. Clone the repository:
-```bash
-git clone https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques.git
-cd House-Price-Advanced-Regression-Techniques
-```
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-3. Run the pipeline script:
-```bash
-python house-prices-advanced-regression-techniques.py
-```
-This will preprocess the data, train the ensemble, and generate submission.csv.
-
----
-
-## 🎬 Screenshots / Demo
-
-### 📊 Scatter Plot: outlier detection 
-Shows relationship between features with outliers and target variable.
-
-<img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/scatter.png" width="900"/>
-
-### 🎯 Target Transformation 
-Before and after log transformation of SalePrice.
-
-| Before | After |
-|--------|-------|
-| <img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/target1.png" width="450"/> | <img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/target2.png" width="450"/> |
-
-
-### 🔥 Feature Correlation Heatmap  
-After dropping highly correlated features (+0.80).
-
-<img src="https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques/blob/main/pictures/heatmap.png" width="900"/>
-
----
-
 ## 🗂️ Project Structure
 ```
 📁 House-Price-Advanced-Regression-Techniques
@@ -85,14 +45,55 @@ After dropping highly correlated features (+0.80).
 ├── requirements.txt
 └── README.md
 ```
+
 ---
 
-## 🛠️ Usage
-- Run the pipeline script to generate preprocessed data, train models with tuned hyperparameters, and produce Kaggle-ready predictions.
-- Outputs:
-  - submission.csv → Kaggle submission.
-  - Internal validation RMSE printed in console.
+## 🚀 Getting Started
+1. Clone the repository:
+```bash
+git clone https://github.com/radwanhefny/House-Price-Advanced-Regression-Techniques.git
+cd House-Price-Advanced-Regression-Techniques
+```
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+3. Run the pipeline script:
+```bash
+python house-prices-advanced-regression-techniques.py
+```
+- The script will automatically handle preprocessing, evaluate cross-validation RMSE in the console, and generate the final submission.csv.
 - Expected Kaggle Public Score: 0.12260 | Top 12%.
+
+---
+
+## 🎬 Visualizations & Insights
+
+### 📊 Scatter Plot: outlier detection 
+Shows relationship between features with outliers and target variable.
+
+<img src="pictures/scatter.png" width="900"/>
+
+### 🎯 Target Transformation 
+Before and after log transformation of SalePrice.
+
+| Before | After |
+|--------|-------|
+| <img src="pictures/target1.png" width="450"/> | <img src="pictures/target2.png" width="450"/> |
+
+
+### 🔥 Feature Correlation Heatmap  
+After dropping highly correlated features (+0.80).
+
+<img src="pictures/heatmap.png" width="900"/>
+
+---
+### 🧠 Engineering Insights & Experiments
+During development, multiple architectures were rigorously tested to strike the best bias-variance trade-off:
+
+- Random Forest Baseline: Underperformed significantly in captured variance compared to boosting algorithms.
+- Stacking Regressor vs. Voting: Stacking showed a high tendency to overfit the meta-features on this specific split size. A finely-tuned Weighted Voting mechanism yielded a more stable validation RMSE.
+- The Linear Regression Pitfall: Integrating a standard Linear Regression model into the final ensemble degraded performance due to its severe sensitivity to minor remaining extreme feature values.
 
 ---
 
@@ -101,27 +102,6 @@ After dropping highly correlated features (+0.80).
 - Cross-validation RMSE
 - Kaggle Public Score
 
----
-
-## 🧠 How It Works
-1. Load datasets using Pandas.
-2. Clean missing values and outliers.
-3. Apply feature engineering and encoding:
-    - Ordinal encoding
-    - Target encoding
-    - Log transformation of target
-    - New engineered features
-4. Split train/validation sets.
-5. Build preprocessing pipeline (numerical scaling, categorical encoding).
-6. Train ensemble of Ridge, CatBoost, XGBoost, LightGBM, Gradient Boosting.
-7. Tune hyperparameters using Optuna for stability and performance.
-8. Generate Kaggle-ready predictions.
-
-### 🧪 Experimental Notes
-- Tested Random Forest: underperformed compared to ensemble.  
-- Tried manual ensemble: similar performance to Voting, but Voting automated the process.  
-- Explored stacking in multiple versions: Voting consistently gave better results, so it was chosen.  
-- Added Linear Regression in the final version: overfitting occurred, reducing ensemble performance due to sensitivity to extreme values.
 
 ---
 
@@ -146,4 +126,5 @@ This project is licensed under the MIT license - see the LICENSE file for detail
 ## 📞 Support
 If you have questions or need help, feel free to:
 - Open an issue on this repository  
-- Connect with me on LinkedIn: https://www.linkedin.com/in/radwanhefny  
+- Connect with me on LinkedIn: https://www.linkedin.com/in/radwanhefny
+* **Explore my Personal Portfolio:** [radwanhefny.netlify.app](https://radwanhefny.netlify.app/)
